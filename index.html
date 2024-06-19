@@ -34,7 +34,7 @@
         bottom: 0;
         width: 100%;
       }
-      .about, .contact {
+      .home, .about, .contact {
         padding: 20px;
         background-color: white;
         margin: 20px;
@@ -66,20 +66,25 @@
     
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
     
     <img src="https://via.placeholder.com/150" alt="Placeholder Image">
 
-    <div class="about">
+    <div id="home" class="home">
+      <h2>Home</h2>
+      <p>Welcome to the home page of our website! Here you will find the latest updates and news.</p>
+    </div>
+
+    <div id="about" class="about">
       <h2>About Us</h2>
       <p>Welcome to our website! We are dedicated to providing the best content for our users. Stay tuned for more updates.</p>
     </div>
 
-    <div class="contact">
+    <div id="contact" class="contact">
       <h2>Contact Us</h2>
       <form>
         <input type="text" name="name" placeholder="Your Name" required>
