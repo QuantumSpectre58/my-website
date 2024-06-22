@@ -35,7 +35,7 @@
         bottom: 0;
         width: 100%;
       }
-      .home, .about, .contact, .news {
+      .home, .about, .contact, .news, .faq {
         padding: 20px;
         background-color: white;
         margin: 20px;
@@ -62,7 +62,26 @@
       .news-item {
         margin-bottom: 20px;
       }
+      .faq-item {
+        margin-bottom: 10px;
+        text-align: left;
+      }
+      .faq-item h3 {
+        margin: 0;
+        cursor: pointer;
+      }
+      .faq-item p {
+        display: none;
+        margin: 0;
+        padding: 0 10px;
+      }
     </style>
+    <script>
+      function toggleFAQAnswer(event) {
+        const answer = event.target.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+      }
+    </script>
   </head>
   <body>
     <h1>Welcome to My Website</h1>
@@ -73,6 +92,7 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#news">Latest News</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -98,6 +118,18 @@
       <div class="news-item">
         <h3>News Item 2</h3>
         <p>Phasellus condimentum turpis a risus ultricies, non hendrerit massa ultricies. Integer viverra turpis et mi feugiat, at viverra elit luctus.</p>
+      </div>
+    </div>
+
+    <div id="faq" class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3 onclick="toggleFAQAnswer(event)">What is this website about?</h3>
+        <p>This website is dedicated to providing the best content for our users.</p>
+      </div>
+      <div class="faq-item">
+        <h3 onclick="toggleFAQAnswer(event)">How can I contact you?</h3>
+        <p>You can contact us through the form on the contact page.</p>
       </div>
     </div>
 
