@@ -75,11 +75,35 @@
         margin: 0;
         padding: 0 10px;
       }
+      #scrollToTop {
+        position: fixed;
+        bottom: 50px;
+        right: 20px;
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+        border: none;
+        cursor: pointer;
+        display: none;
+        border-radius: 5px;
+      }
     </style>
     <script>
       function toggleFAQAnswer(event) {
         const answer = event.target.nextElementSibling;
         answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+      }
+      window.onscroll = function() {
+        const scrollToTopButton = document.getElementById('scrollToTop');
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          scrollToTopButton.style.display = 'block';
+        } else {
+          scrollToTopButton.style.display = 'none';
+        }
+      };
+      function scrollToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
       }
     </script>
   </head>
@@ -146,5 +170,7 @@
     <footer>
       <p>&copy; 2024 My Website</p>
     </footer>
+
+    <button id="scrollToTop" onclick="scrollToTop()">Scroll to Top</button>
   </body>
 </html>
