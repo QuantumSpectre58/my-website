@@ -35,7 +35,7 @@
         bottom: 0;
         width: 100%;
       }
-      .home, .about, .contact, .news, .faq {
+      .home, .about, .contact, .news, .faq, .testimonials {
         padding: 20px;
         background-color: white;
         margin: 20px;
@@ -59,7 +59,7 @@
         border: none;
         cursor: pointer;
       }
-      .news-item {
+      .news-item, .testimonial-item {
         margin-bottom: 20px;
       }
       .faq-item {
@@ -117,6 +117,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#news">Latest News</a></li>
         <li><a href="#faq">FAQ</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -154,6 +155,18 @@
       <div class="faq-item">
         <h3 onclick="toggleFAQAnswer(event)">How can I contact you?</h3>
         <p>You can contact us through the form on the contact page.</p>
+      </div>
+    </div>
+
+    <div id="testimonials" class="testimonials">
+      <h2>Testimonials</h2>
+      <div class="testimonial-item">
+        <h3>John Doe</h3>
+        <p>This website is amazing! I found everything I needed and more. Highly recommend!</p>
+      </div>
+      <div class="testimonial-item">
+        <h3>Jane Smith</h3>
+        <p>Great content and easy to navigate. I will definitely be coming back!</p>
       </div>
     </div>
 
