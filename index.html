@@ -5,17 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome Page</title>
     <style>
+      :root {
+        --background-color: #f0f0f0;
+        --text-color: #000;
+        --nav-background-color: #333;
+        --nav-text-color: #fff;
+        --button-background-color: #333;
+        --button-text-color: #fff;
+      }
+      [data-theme="dark"] {
+        --background-color: #121212;
+        --text-color: #fff;
+        --nav-background-color: #444;
+        --nav-text-color: #fff;
+        --button-background-color: #444;
+        --button-text-color: #fff;
+      }
       body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
         text-align: center;
-        background-color: #f0f0f0;
+        background-color: var(--background-color);
+        color: var(--text-color);
       }
       nav ul {
         list-style-type: none;
         padding: 0;
-        background-color: #333;
+        background-color: var(--nav-background-color);
         margin: 0;
       }
       nav ul li {
@@ -23,13 +40,13 @@
         margin: 0 10px;
       }
       nav ul li a {
-        color: white;
+        color: var(--nav-text-color);
         text-decoration: none;
         scroll-behavior: smooth;
       }
       footer {
-        background-color: #333;
-        color: white;
+        background-color: var(--nav-background-color);
+        color: var(--nav-text-color);
         padding: 10px 0;
         position: fixed;
         bottom: 0;
@@ -61,8 +78,8 @@
       }
       form button {
         padding: 10px 20px;
-        background-color: #333;
-        color: white;
+        background-color: var(--button-background-color);
+        color: var(--button-text-color);
         border: none;
         cursor: pointer;
       }
@@ -87,8 +104,8 @@
         bottom: 50px;
         right: 20px;
         padding: 10px 20px;
-        background-color: #333;
-        color: white;
+        background-color: var(--button-background-color);
+        color: var(--button-text-color);
         border: none;
         cursor: pointer;
         display: none;
@@ -129,6 +146,24 @@
         text-decoration: none;
         cursor: pointer;
       }
+      /* Переключатель тем */
+      .theme-switch {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+      }
+      .theme-switch input {
+        display: none;
+      }
+      .theme-switch label {
+        cursor: pointer;
+        background-color: var(--button-background-color);
+        color: var(--button-text-color);
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
     </style>
     <script>
       function toggleFAQAnswer(event) {
@@ -165,6 +200,11 @@
         if (event.target == document.getElementById('aboutModal')) {
           document.getElementById('aboutModal').style.display = "none";
         }
+      }
+      function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
       }
     </script>
   </head>
@@ -221,39 +261,4 @@
 
     <div id="testimonials" class="testimonials">
       <h2>Testimonials</h2>
-      <div class="testimonial-item">
-        <h3>John Doe</h3>
-        <p>This website is amazing! I found everything I needed and more. Highly recommend!</p>
-      </div>
-      <div class="testimonial-item">
-        <h3>Jane Smith</h3>
-        <p>Great content and easy to navigate. I will definitely be coming back!</p>
-      </div>
-    </div>
-
-    <div id="contact" class="contact">
-      <h2>Contact Us</h2>
-      <form>
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </div>
-
-    <footer>
-      <p>&copy; 2024 My Website</p>
-    </footer>
-
-    <button id="scrollToTop" onclick="scrollToTop()">Scroll to Top</button>
-
-    <!-- Модальное окно -->
-    <div id="aboutModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2>About This Website</h2>
-        <p>Our website is dedicated to providing high-quality content for our users. We strive to offer the best experience through our interactive and user-friendly platform.</p>
-      </div>
-    </div>
-  </body>
-</html>
+      <div class="
