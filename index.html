@@ -261,4 +261,46 @@
 
     <div id="testimonials" class="testimonials">
       <h2>Testimonials</h2>
-      <div class="
+      <div class="testimonial-item">
+        <p>"This is the best website I have ever visited!" - Jane Doe</p>
+      </div>
+      <div class="testimonial-item">
+        <p>"Amazing content and user experience." - John Smith</p>
+      </div>
+    </div>
+
+    <div id="contact" class="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <h3>Subscribe to our newsletter</h3>
+      <form>
+        <input type="email" name="newsletter-email" placeholder="Your Email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <footer>
+      <p>&copy; 2023 My Website. All rights reserved.</p>
+    </footer>
+
+    <button id="scrollToTop" onclick="scrollToTop()">Scroll to Top</button>
+
+    <div id="aboutModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>About Our Website</h2>
+        <p>We are committed to providing the best user experience through our interactive and user-friendly platform.</p>
+      </div>
+    </div>
+    
+    <div class="theme-switch">
+      <input type="checkbox" id="theme-switch" onclick="toggleTheme()">
+      <label for="theme-switch">Toggle Dark Mode</label>
+    </div>
+  </body>
+</html>
