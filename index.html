@@ -52,7 +52,7 @@
         bottom: 0;
         width: 100%;
       }
-      .home, .about, .contact, .news, .faq, .testimonials {
+      .home, .about, .contact, .news, .faq, .testimonials, .services {
         padding: 20px;
         background-color: white;
         margin: 20px;
@@ -178,7 +178,7 @@
           scrollToTopButton.style.display = 'none';
         }
         
-        const sections = document.querySelectorAll('.home, .about, .news, .faq, .testimonials, .contact');
+        const sections = document.querySelectorAll('.home, .about, .news, .faq, .testimonials, .contact, .services');
         sections.forEach(section => {
           const rect = section.getBoundingClientRect();
           if (rect.top < window.innerHeight - 50) {
@@ -217,6 +217,7 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#about" onclick="openModal()">About</a></li>
         <li><a href="#news">Latest News</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -244,6 +245,18 @@
       <div class="news-item">
         <h3>News Item 2</h3>
         <p>Phasellus condimentum turpis a risus ultricies, non hendrerit massa ultricies. Integer viverra turpis et mi feugiat, at viverra elit luctus.</p>
+      </div>
+    </div>
+
+    <div id="services" class="services">
+      <h2>Our Services</h2>
+      <div class="service-item">
+        <h3>Service 1</h3>
+        <p>We offer a variety of services to cater to your needs.</p>
+      </div>
+      <div class="service-item">
+        <h3>Service 2</h3>
+        <p>Our team is dedicated to providing top-notch solutions.</p>
       </div>
     </div>
 
