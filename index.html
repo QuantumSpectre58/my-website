@@ -52,7 +52,7 @@
         bottom: 0;
         width: 100%;
       }
-      .home, .about, .contact, .news, .faq, .testimonials, .services {
+      .home, .about, .contact, .news, .faq, .testimonials, .services, .portfolio {
         padding: 20px;
         background-color: white;
         margin: 20px;
@@ -83,7 +83,7 @@
         border: none;
         cursor: pointer;
       }
-      .news-item, .testimonial-item {
+      .news-item, .testimonial-item, .service-item, .portfolio-item {
         margin-bottom: 20px;
       }
       .faq-item {
@@ -178,7 +178,7 @@
           scrollToTopButton.style.display = 'none';
         }
         
-        const sections = document.querySelectorAll('.home, .about, .news, .faq, .testimonials, .contact, .services');
+        const sections = document.querySelectorAll('.home, .about, .news, .faq, .testimonials, .contact, .services, .portfolio');
         sections.forEach(section => {
           const rect = section.getBoundingClientRect();
           if (rect.top < window.innerHeight - 50) {
@@ -218,6 +218,7 @@
         <li><a href="#about" onclick="openModal()">About</a></li>
         <li><a href="#news">Latest News</a></li>
         <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -257,6 +258,18 @@
       <div class="service-item">
         <h3>Service 2</h3>
         <p>Our team is dedicated to providing top-notch solutions.</p>
+      </div>
+    </div>
+
+    <div id="portfolio" class="portfolio">
+      <h2>Our Portfolio</h2>
+      <div class="portfolio-item">
+        <h3>Project 1</h3>
+        <p>Details about project 1.</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Project 2</h3>
+        <p>Details about project 2.</p>
       </div>
     </div>
 
