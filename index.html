@@ -52,7 +52,7 @@
         bottom: 0;
         width: 100%;
       }
-      .home, .about, .contact, .news, .faq, .testimonials, .services, .portfolio, .blog, .gallery, .pricing {
+      .home, .about, .contact, .news, .faq, .testimonials, .services, .portfolio, .blog, .gallery, .pricing, .team {
         padding: 20px;
         background-color: white;
         margin: 20px;
@@ -83,7 +83,7 @@
         border: none;
         cursor: pointer;
       }
-      .news-item, .testimonial-item, .service-item, .portfolio-item, .blog-item, .gallery-item, .pricing-item {
+      .news-item, .testimonial-item, .service-item, .portfolio-item, .blog-item, .gallery-item, .pricing-item, .team-member {
         margin-bottom: 20px;
       }
       .faq-item {
@@ -170,6 +170,10 @@
         height: auto;
         border-radius: 8px;
       }
+      .team-member img {
+        max-width: 150px;
+        border-radius: 50%;
+      }
     </style>
     <script>
       function toggleFAQAnswer(event) {
@@ -184,7 +188,7 @@
           scrollToTopButton.style.display = 'none';
         }
         
-        const sections = document.querySelectorAll('.home, .about, .news, .faq, .testimonials, .contact, .services, .portfolio, .blog, .gallery, .pricing');
+        const sections = document.querySelectorAll('.home, .about, .news, .faq, .testimonials, .contact, .services, .portfolio, .blog, .gallery, .pricing, .team');
         sections.forEach(section => {
           const rect = section.getBoundingClientRect();
           if (rect.top < window.innerHeight - 50) {
@@ -228,6 +232,7 @@
         <li><a href="#blog">Blog</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#team">Team</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -254,7 +259,7 @@
       </div>
       <div class="news-item">
         <h3>News Item 2</h3>
-        <p>Phasellus condimentum turpis a risus ultricies, non hendrerit massa ultricies. Integer viverra turpis et mi feugiat, at viverra elit luctus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula, odio ut bibendum faucibus, felis mauris pharetra urna, nec egestas justo urna eget sapien.</p>
       </div>
     </div>
 
@@ -355,6 +360,20 @@
         <input type="email" name="newsletter-email" placeholder="Your Email" required>
         <button type="submit">Subscribe</button>
       </form>
+    </div>
+
+    <div id="team" class="team">
+      <h2>Our Team</h2>
+      <div class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member 1">
+        <h3>John Doe</h3>
+        <p>CEO & Founder</p>
+      </div>
+      <div class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member 2">
+        <h3>Jane Smith</h3>
+        <p>CTO</p>
+      </div>
     </div>
 
     <footer>
