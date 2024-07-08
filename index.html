@@ -52,7 +52,7 @@
         bottom: 0;
         width: 100%;
       }
-      .home, .about, .contact, .news, .faq, .testimonials, .services, .portfolio, .blog, .gallery, .pricing, .team, .partners, .awards {
+      .home, .about, .contact, .news, .faq, .testimonials, .services, .portfolio, .blog, .gallery, .pricing, .team, .partners, .awards, .careers {
         padding: 20px;
         background-color: white;
         margin: 20px;
@@ -83,7 +83,7 @@
         border: none;
         cursor: pointer;
       }
-      .news-item, .testimonial-item, .service-item, .portfolio-item, .blog-item, .gallery-item, .pricing-item, .team-member, .partner-item, .award-item {
+      .news-item, .testimonial-item, .service-item, .portfolio-item, .blog-item, .gallery-item, .pricing-item, .team-member, .partner-item, .award-item, .career-item {
         margin-bottom: 20px;
       }
       .faq-item {
@@ -170,7 +170,7 @@
         height: auto;
         border-radius: 8px;
       }
-      .team-member img, .partner-item img, .award-item img {
+      .team-member img, .partner-item img, .award-item img, .career-item img {
         max-width: 150px;
         border-radius: 50%;
       }
@@ -188,7 +188,7 @@
           scrollToTopButton.style.display = 'none';
         }
         
-        const sections = document.querySelectorAll('.home, .about, .news, .faq, .testimonials, .contact, .services, .portfolio, .blog, .gallery, .pricing, .team, .partners, .awards');
+        const sections = document.querySelectorAll('.home, .about, .news, .faq, .testimonials, .contact, .services, .portfolio, .blog, .gallery, .pricing, .team, .partners, .awards, .careers');
         sections.forEach(section => {
           const rect = section.getBoundingClientRect();
           if (rect.top < window.innerHeight - 50) {
@@ -235,6 +235,7 @@
         <li><a href="#team">Team</a></li>
         <li><a href="#partners">Partners</a></li>
         <li><a href="#awards">Awards</a></li>
+        <li><a href="#careers">Careers</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -403,6 +404,20 @@
         <img src="https://via.placeholder.com/150" alt="Award 2">
         <h3>Award 2</h3>
         <p>Description of award 2.</p>
+      </div>
+    </div>
+
+    <div id="careers" class="careers">
+      <h2>Careers</h2>
+      <div class="career-item">
+        <img src="https://via.placeholder.com/150" alt="Career 1">
+        <h3>Front-End Developer</h3>
+        <p>Join our team as a Front-End Developer and help us build amazing web experiences.</p>
+      </div>
+      <div class="career-item">
+        <img src="https://via.placeholder.com/150" alt="Career 2">
+        <h3>Back-End Developer</h3>
+        <p>We are looking for a skilled Back-End Developer to join our team.</p>
       </div>
     </div>
 
