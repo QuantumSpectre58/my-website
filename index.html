@@ -52,7 +52,7 @@
         bottom: 0;
         width: 100%;
       }
-      .home, .about, .contact, .news, .faq, .testimonials, .services, .portfolio, .blog, .gallery, .pricing, .team, .partners, .awards, .careers {
+      .home, .about, .contact, .news, .faq, .testimonials, .services, .portfolio, .blog, .gallery, .pricing, .team, .partners, .awards, .careers, .events {
         padding: 20px;
         background-color: white;
         margin: 20px;
@@ -83,7 +83,7 @@
         border: none;
         cursor: pointer;
       }
-      .news-item, .testimonial-item, .service-item, .portfolio-item, .blog-item, .gallery-item, .pricing-item, .team-member, .partner-item, .award-item, .career-item {
+      .news-item, .testimonial-item, .service-item, .portfolio-item, .blog-item, .gallery-item, .pricing-item, .team-member, .partner-item, .award-item, .career-item, .event-item {
         margin-bottom: 20px;
       }
       .faq-item {
@@ -170,7 +170,7 @@
         height: auto;
         border-radius: 8px;
       }
-      .team-member img, .partner-item img, .award-item img, .career-item img {
+      .team-member img, .partner-item img, .award-item img, .career-item img, .event-item img {
         max-width: 150px;
         border-radius: 50%;
       }
@@ -188,7 +188,7 @@
           scrollToTopButton.style.display = 'none';
         }
         
-        const sections = document.querySelectorAll('.home, .about, .news, .faq, .testimonials, .contact, .services, .portfolio, .blog, .gallery, .pricing, .team, .partners, .awards, .careers');
+        const sections = document.querySelectorAll('.home, .about, .news, .faq, .testimonials, .contact, .services, .portfolio, .blog, .gallery, .pricing, .team, .partners, .awards, .careers, .events');
         sections.forEach(section => {
           const rect = section.getBoundingClientRect();
           if (rect.top < window.innerHeight - 50) {
@@ -236,6 +236,7 @@
         <li><a href="#partners">Partners</a></li>
         <li><a href="#awards">Awards</a></li>
         <li><a href="#careers">Careers</a></li>
+        <li><a href="#events">Events</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -251,7 +252,7 @@
 
     <div id="about" class="about">
       <h2>About Us</h2>
-      <p>Welcome to our website! We are dedicated to providing the best content for our users. Stay tuned for more updates.</p>
+      <p>Learn more about our company, our mission, and our team.</p>
     </div>
 
     <div id="news" class="news">
@@ -418,6 +419,20 @@
         <img src="https://via.placeholder.com/150" alt="Career 2">
         <h3>Back-End Developer</h3>
         <p>We are looking for a skilled Back-End Developer to join our team.</p>
+      </div>
+    </div>
+
+    <div id="events" class="events">
+      <h2>Events</h2>
+      <div class="event-item">
+        <img src="https://via.placeholder.com/150" alt="Event 1">
+        <h3>Event 1</h3>
+        <p>Details about event 1.</p>
+      </div>
+      <div class="event-item">
+        <img src="https://via.placeholder.com/150" alt="Event 2">
+        <h3>Event 2</h3>
+        <p>Details about event 2.</p>
       </div>
     </div>
 
