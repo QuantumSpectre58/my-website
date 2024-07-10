@@ -216,6 +216,15 @@
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', newTheme);
       }
+      function openEventModal(event) {
+        const modal = document.getElementById('eventModal');
+        modal.querySelector('.modal-content h2').innerText = event.target.dataset.title;
+        modal.querySelector('.modal-content p').innerText = event.target.dataset.description;
+        modal.style.display = 'block';
+      }
+      function closeEventModal() {
+        document.getElementById('eventModal').style.display = 'none';
+      }
     </script>
   </head>
   <body>
@@ -243,13 +252,13 @@
       </ul>
     </nav>
     
-    <img src="https://via.placeholder.com/150" alt="Placeholder Image">
-
+    <img src="https://via.placeholder.com/800x400" alt="Sample Banner Image" style="width: 100%; height: auto;">
+    
     <div id="home" class="home">
       <h2>Home</h2>
-      <p>Welcome to the home page of our website! Here you will find the latest updates and news.</p>
+      <p>Welcome to our website. We are glad to have you here!</p>
     </div>
-
+    
     <div id="about" class="about">
       <h2>About Us</h2>
       <p>Learn more about our company, our mission, and our team.</p>
@@ -426,12 +435,12 @@
       <h2>Events</h2>
       <div class="event-item">
         <img src="https://via.placeholder.com/150" alt="Event 1">
-        <h3>Event 1</h3>
+        <h3 data-title="Event 1" data-description="Details about event 1." onclick="openEventModal(event)">Event 1</h3>
         <p>Details about event 1.</p>
       </div>
       <div class="event-item">
         <img src="https://via.placeholder.com/150" alt="Event 2">
-        <h3>Event 2</h3>
+        <h3 data-title="Event 2" data-description="Details about event 2." onclick="openEventModal(event)">Event 2</h3>
         <p>Details about event 2.</p>
       </div>
     </div>
@@ -450,9 +459,17 @@
       </div>
     </div>
     
+    <div id="eventModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeEventModal()">&times;</span>
+        <h2>Event Title</h2>
+        <p>Event description will go here.</p>
+      </div>
+    </div>
+    
     <div class="theme-switch">
-      <input type="checkbox" id="theme-switch" onclick="toggleTheme()">
-      <label for="theme-switch">Toggle Dark Mode</label>
+      <input type="checkbox" id="themeToggle" onclick="toggleTheme()">
+      <label for="themeToggle">Toggle Dark/Light Theme</label>
     </div>
   </body>
 </html>
