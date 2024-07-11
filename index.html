@@ -5,471 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome Page</title>
     <style>
-      :root {
-        --background-color: #f0f0f0;
-        --text-color: #000;
-        --nav-background-color: #333;
-        --nav-text-color: #fff;
-        --button-background-color: #333;
-        --button-text-color: #fff;
-      }
-      [data-theme="dark"] {
-        --background-color: #121212;
-        --text-color: #fff;
-        --nav-background-color: #444;
-        --nav-text-color: #fff;
-        --button-background-color: #444;
-        --button-text-color: #fff;
-      }
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-        background-color: var(--background-color);
-        color: var(--text-color);
-      }
-      nav ul {
-        list-style-type: none;
-        padding: 0;
-        background-color: var(--nav-background-color);
-        margin: 0;
-      }
-      nav ul li {
-        display: inline;
-        margin: 0 10px;
-      }
-      nav ul li a {
-        color: var(--nav-text-color);
-        text-decoration: none;
-        scroll-behavior: smooth;
-      }
-      footer {
-        background-color: var(--nav-background-color);
-        color: var(--nav-text-color);
-        padding: 10px 0;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-      }
-      .home, .about, .contact, .news, .faq, .testimonials, .services, .portfolio, .blog, .gallery, .pricing, .team, .partners, .awards, .careers, .events {
-        padding: 20px;
-        background-color: white;
-        margin: 20px;
-        border-radius: 8px;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s, transform 0.6s;
-      }
-      .visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      form input, form textarea {
-        margin: 5px 0;
-        padding: 10px;
-        width: 80%;
-        max-width: 400px;
-      }
-      form button {
-        padding: 10px 20px;
-        background-color: var(--button-background-color);
-        color: var(--button-text-color);
-        border: none;
-        cursor: pointer;
-      }
-      .news-item, .testimonial-item, .service-item, .portfolio-item, .blog-item, .gallery-item, .pricing-item, .team-member, .partner-item, .award-item, .career-item, .event-item {
-        margin-bottom: 20px;
-      }
-      .faq-item {
-        margin-bottom: 10px;
-        text-align: left;
-      }
-      .faq-item h3 {
-        margin: 0;
-        cursor: pointer;
-      }
-      .faq-item p {
-        display: none;
-        margin: 0;
-        padding: 0 10px;
-      }
-      #scrollToTop {
-        position: fixed;
-        bottom: 50px;
-        right: 20px;
-        padding: 10px 20px;
-        background-color: var(--button-background-color);
-        color: var(--button-text-color);
-        border: none;
-        cursor: pointer;
-        display: none;
-        border-radius: 5px;
-      }
-      /* Модальное окно */
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0,0.4);
-        padding-top: 60px;
-      }
-      .modal-content {
-        background-color: #fefefe;
-        margin: 5% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-        max-width: 500px;
-        border-radius: 8px;
-      }
-      .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-      }
-      .close:hover,
-      .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-      }
-      /* Переключатель тем */
-      .theme-switch {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        display: flex;
-        align-items: center;
-      }
-      .theme-switch input {
-        display: none;
-      }
-      .theme-switch label {
-        cursor: pointer;
-        background-color: var(--button-background-color);
-        color: var(--button-text-color);
-        padding: 5px 10px;
-        border-radius: 5px;
-      }
-      /* Стили для галереи и команды */
-      .gallery-item img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-      }
-      .team-member img, .partner-item img, .award-item img, .career-item img, .event-item img {
-        max-width: 150px;
-        border-radius: 50%;
-      }
+      :root { --background-color: #f0f0f0; --text-color: #000; --nav-background-color: #333; --nav-text-color: #fff; --button-background-color: #333; --button-text-color: #fff; }
+      [data-theme="dark"] { --background-color: #121212; --text-color: #fff; --nav-background-color: #444; --button-background-color: #444; }
+      body { font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; background-color: var(--background-color); color: var(--text-color); }
+      nav ul { list-style-type: none; padding: 0; background-color: var(--nav-background-color); margin: 0; display: flex; justify-content: center; }
+      nav ul li { margin: 0 10px; }
+      nav ul li a { color: var(--nav-text-color); text-decoration: none; scroll-behavior: smooth; }
+      footer, .home, .about, .news, .faq, .testimonials, .contact, .services, .portfolio, .blog, .gallery, .pricing, .team, .partners, .awards, .careers, .events { padding: 20px; margin: 20px; border-radius: 8px; }
+      footer { background-color: var(--nav-background-color); color: var(--nav-text-color); padding: 10px 0; position: fixed; bottom: 0; width: 100%; }
+      form { display: flex; flex-direction: column; align-items: center; }
+      form input, form textarea { margin: 5px 0; padding: 10px; width: 80%; max-width: 400px; }
+      form button { padding: 10px 20px; background-color: var(--button-background-color); color: var(--button-text-color); border: none; cursor: pointer; }
+      .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.4); padding-top: 60px; }
+      .modal-content { background-color: #fefefe; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 500px; border-radius: 8px; }
+      .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+      .close:hover, .close:focus { color: black; text-decoration: none; cursor: pointer; }
+      .theme-switch { position: absolute; top: 20px; right: 20px; display: flex; align-items: center; }
+      .theme-switch input { display: none; }
+      .theme-switch label { cursor: pointer; background-color: var(--button-background-color); color: var(--button-text-color); padding: 5px 10px; border-radius: 5px; }
+      .gallery-item img, .team-member img, .partner-item img, .award-item img, .career-item img, .event-item img { max-width: 100%; border-radius: 8px; }
+      .gallery-item img, .team-member img, .partner-item img, .award-item img, .career-item img, .event-item img { max-width: 150px; border-radius: 50%; }
     </style>
     <script>
-      function toggleFAQAnswer(event) {
-        const answer = event.target.nextElementSibling;
-        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-      }
+      function toggleFAQAnswer(event) { const answer = event.target.nextElementSibling; answer.style.display = answer.style.display === 'block' ? 'none' : 'block'; }
       window.onscroll = function() {
         const scrollToTopButton = document.getElementById('scrollToTop');
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-          scrollToTopButton.style.display = 'block';
-        } else {
-          scrollToTopButton.style.display = 'none';
-        }
-        
-        const sections = document.querySelectorAll('.home, .about, .news, .faq, .testimonials, .contact, .services, .portfolio, .blog, .gallery, .pricing, .team, .partners, .awards, .careers, .events');
-        sections.forEach(section => {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) { scrollToTopButton.style.display = 'block'; } else { scrollToTopButton.style.display = 'none'; }
+        document.querySelectorAll('.home, .about, .news, .faq, .testimonials, .contact, .services, .portfolio, .blog, .gallery, .pricing, .team, .partners, .awards, .careers, .events').forEach(section => {
           const rect = section.getBoundingClientRect();
-          if (rect.top < window.innerHeight - 50) {
-            section.classList.add('visible');
-          }
+          if (rect.top < window.innerHeight - 50) { section.classList.add('visible'); }
         });
       };
-      function scrollToTop() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      }
-      function openModal() {
-        document.getElementById('aboutModal').style.display = "block";
-      }
-      function closeModal() {
-        document.getElementById('aboutModal').style.display = "none";
-      }
-      window.onclick = function(event) {
-        if (event.target == document.getElementById('aboutModal')) {
-          document.getElementById('aboutModal').style.display = "none";
-        }
-      }
-      function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', newTheme);
-      }
-      function openEventModal(event) {
-        const modal = document.getElementById('eventModal');
-        modal.querySelector('.modal-content h2').innerText = event.target.dataset.title;
-        modal.querySelector('.modal-content p').innerText = event.target.dataset.description;
-        modal.style.display = 'block';
-      }
-      function closeEventModal() {
-        document.getElementById('eventModal').style.display = 'none';
-      }
+      function scrollToTop() { document.body.scrollTop = 0; document.documentElement.scrollTop = 0; }
+      function openModal() { document.getElementById('aboutModal').style.display = "block"; }
+      function closeModal() { document.getElementById('aboutModal').style.display = "none"; }
+      window.onclick = function(event) { if (event.target == document.getElementById('aboutModal')) { document.getElementById('aboutModal').style.display = "none"; } }
+      function toggleTheme() { const currentTheme = document.documentElement.getAttribute('data-theme'); const newTheme = currentTheme === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', newTheme); }
+      function openEventModal(event) { const modal = document.getElementById('eventModal'); modal.querySelector('.modal-content h2').innerText = event.target.dataset.title; modal.querySelector('.modal-content p').innerText = event.target.dataset.description; modal.style.display = 'block'; }
+      function closeEventModal() { document.getElementById('eventModal').style.display = 'none'; }
     </script>
   </head>
   <body>
     <h1>Welcome to My Website</h1>
     <p>This is the first step in building our awesome website.</p>
-    
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about" onclick="openModal()">About</a></li>
-        <li><a href="#news">Latest News</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#partners">Partners</a></li>
-        <li><a href="#awards">Awards</a></li>
-        <li><a href="#careers">Careers</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    
+    <nav><ul><li><a href="#home">Home</a></li><li><a href="#about" onclick="openModal()">About</a></li><li><a href="#news">Latest News</a></li><li><a href="#services">Services</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#blog">Blog</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#team">Team</a></li><li><a href="#partners">Partners</a></li><li><a href="#awards">Awards</a></li><li><a href="#careers">Careers</a></li><li><a href="#events">Events</a></li><li><a href="#faq">FAQ</a></li><li><a href="#testimonials">Testimonials</a></li><li><a href="#contact">Contact</a></li></ul></nav>
     <img src="https://via.placeholder.com/800x400" alt="Sample Banner Image" style="width: 100%; height: auto;">
-    
-    <div id="home" class="home">
-      <h2>Home</h2>
-      <p>Welcome to our website. We are glad to have you here!</p>
-    </div>
-    
-    <div id="about" class="about">
-      <h2>About Us</h2>
-      <p>Learn more about our company, our mission, and our team.</p>
-    </div>
-
-    <div id="news" class="news">
-      <h2>Latest News</h2>
-      <div class="news-item">
-        <h3>News Item 1</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula, odio ut bibendum faucibus, felis mauris pharetra urna, nec egestas justo urna eget sapien.</p>
-      </div>
-      <div class="news-item">
-        <h3>News Item 2</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula, odio ut bibendum faucibus, felis mauris pharetra urna, nec egestas justo urna eget sapien.</p>
-      </div>
-    </div>
-
-    <div id="services" class="services">
-      <h2>Our Services</h2>
-      <div class="service-item">
-        <h3>Service 1</h3>
-        <p>We offer a variety of services to cater to your needs.</p>
-      </div>
-      <div class="service-item">
-        <h3>Service 2</h3>
-        <p>Our team is dedicated to providing top-notch solutions.</p>
-      </div>
-    </div>
-
-    <div id="portfolio" class="portfolio">
-      <h2>Our Portfolio</h2>
-      <div class="portfolio-item">
-        <h3>Project 1</h3>
-        <p>Details about project 1.</p>
-      </div>
-      <div class="portfolio-item">
-        <h3>Project 2</h3>
-        <p>Details about project 2.</p>
-      </div>
-    </div>
-
-    <div id="blog" class="blog">
-      <h2>Our Blog</h2>
-      <div class="blog-item">
-        <h3>Blog Post 1</h3>
-        <p>Details about blog post 1.</p>
-      </div>
-      <div class="blog-item">
-        <h3>Blog Post 2</h3>
-        <p>Details about blog post 2.</p>
-      </div>
-    </div>
-
-    <div id="gallery" class="gallery">
-      <h2>Gallery</h2>
-      <div class="gallery-item">
-        <img src="https://via.placeholder.com/400" alt="Gallery Image 1">
-      </div>
-      <div class="gallery-item">
-        <img src="https://via.placeholder.com/400" alt="Gallery Image 2">
-      </div>
-    </div>
-
-    <div id="pricing" class="pricing">
-      <h2>Pricing</h2>
-      <div class="pricing-item">
-        <h3>Basic Plan</h3>
-        <p>$10/month - Includes basic features.</p>
-      </div>
-      <div class="pricing-item">
-        <h3>Pro Plan</h3>
-        <p>$30/month - Includes all features and priority support.</p>
-      </div>
-      <div class="pricing-item">
-        <h3>Enterprise Plan</h3>
-        <p>Contact us for pricing - Custom solutions for large businesses.</p>
-      </div>
-    </div>
-
-    <div id="faq" class="faq">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-item">
-        <h3 onclick="toggleFAQAnswer(event)">What is this website about?</h3>
-        <p>This website is dedicated to providing the best content for our users.</p>
-      </div>
-      <div class="faq-item">
-        <h3 onclick="toggleFAQAnswer(event)">How can I contact you?</h3>
-        <p>You can contact us through the form on the contact page.</p>
-      </div>
-    </div>
-
-    <div id="testimonials" class="testimonials">
-      <h2>Testimonials</h2>
-      <div class="testimonial-item">
-        <p>"This is the best website I have ever visited!" - Jane Doe</p>
-      </div>
-      <div class="testimonial-item">
-        <p>"Amazing content and user experience." - John Smith</p>
-      </div>
-    </div>
-
-    <div id="contact" class="contact">
-      <h2>Contact Us</h2>
-      <form>
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-      <h3>Subscribe to our newsletter</h3>
-      <form>
-        <input type="email" name="newsletter-email" placeholder="Your Email" required>
-        <button type="submit">Subscribe</button>
-      </form>
-    </div>
-
-    <div id="team" class="team">
-      <h2>Our Team</h2>
-      <div class="team-member">
-        <img src="https://via.placeholder.com/150" alt="Team Member 1">
-        <h3>John Doe</h3>
-        <p>CEO & Founder</p>
-      </div>
-      <div class="team-member">
-        <img src="https://via.placeholder.com/150" alt="Team Member 2">
-        <h3>Jane Smith</h3>
-        <p>CTO</p>
-      </div>
-    </div>
-
-    <div id="partners" class="partners">
-      <h2>Our Partners</h2>
-      <div class="partner-item">
-        <img src="https://via.placeholder.com/150" alt="Partner 1">
-        <h3>Partner 1</h3>
-        <p>Information about partner 1.</p>
-      </div>
-      <div class="partner-item">
-        <img src="https://via.placeholder.com/150" alt="Partner 2">
-        <h3>Partner 2</h3>
-        <p>Information about partner 2.</p>
-      </div>
-    </div>
-
-    <div id="awards" class="awards">
-      <h2>Awards</h2>
-      <div class="award-item">
-        <img src="https://via.placeholder.com/150" alt="Award 1">
-        <h3>Award 1</h3>
-        <p>Description of award 1.</p>
-      </div>
-      <div class="award-item">
-        <img src="https://via.placeholder.com/150" alt="Award 2">
-        <h3>Award 2</h3>
-        <p>Description of award 2.</p>
-      </div>
-    </div>
-
-    <div id="careers" class="careers">
-      <h2>Careers</h2>
-      <div class="career-item">
-        <img src="https://via.placeholder.com/150" alt="Career 1">
-        <h3>Front-End Developer</h3>
-        <p>Join our team as a Front-End Developer and help us build amazing web experiences.</p>
-      </div>
-      <div class="career-item">
-        <img src="https://via.placeholder.com/150" alt="Career 2">
-        <h3>Back-End Developer</h3>
-        <p>We are looking for a skilled Back-End Developer to join our team.</p>
-      </div>
-    </div>
-
-    <div id="events" class="events">
-      <h2>Events</h2>
-      <div class="event-item">
-        <img src="https://via.placeholder.com/150" alt="Event 1">
-        <h3 data-title="Event 1" data-description="Details about event 1." onclick="openEventModal(event)">Event 1</h3>
-        <p>Details about event 1.</p>
-      </div>
-      <div class="event-item">
-        <img src="https://via.placeholder.com/150" alt="Event 2">
-        <h3 data-title="Event 2" data-description="Details about event 2." onclick="openEventModal(event)">Event 2</h3>
-        <p>Details about event 2.</p>
-      </div>
-    </div>
-
-    <footer>
-      <p>&copy; 2023 My Website. All rights reserved.</p>
-    </footer>
-
-    <button id="scrollToTop" onclick="scrollToTop()">Scroll to Top</button>
-
-    <div id="aboutModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2>About Our Website</h2>
-        <p>We are committed to providing the best user experience through our interactive and user-friendly platform.</p>
-      </div>
-    </div>
-    
-    <div id="eventModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeEventModal()">&times;</span>
-        <h2>Event Title</h2>
-        <p>Event description will go here.</p>
-      </div>
-    </div>
-    
-    <div class="theme-switch">
-      <input type="checkbox" id="themeToggle" onclick="toggleTheme()">
-      <label for="themeToggle">Toggle Dark/Light Theme</label>
-    </div>
-  </body>
-</html>
+    <div id="home" class="home"><h2>Home</h2><p>Welcome to our website. We are glad to have you here!</p></div>
+    <div id="about" class="about"><h2>About Us</h2><p>Learn more about our company, our mission, and our team.</p></div>
+    <div id="news" class="news"><h2>Latest News</h2><div class="news-item"><h3>News Item 1</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula, odio ut bibendum faucibus, felis mauris pharetra urna, nec egestas justo urna eget sapien.</p></div><div class="news-item"><h3>News Item 2</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula, odio ut bibendum faucibus, felis mauris pharetra urna, nec egestas justo urna eget sapien.</p></div></div>
+    <div id="services" class="services"><h2>Our Services</h2><div class="service-item"><h3>Service 1</h3><p>We offer a variety of services to cater to your needs.</p></div><div class="service-item"><h3>Service 2</h3><p>Our team is dedicated to providing top-notch solutions.</p></div></div>
+    <div id="portfolio" class="portfolio"><h2>Our Portfolio</h2><div class="portfolio-item"><h3>Project 1</h3><p>Details about project 1.</p></div><div class="portfolio-item"><h3>Project 2</h3><p>Details about project 2.</p></div></div>
+    <div id="blog" class="blog"><h2>Our Blog</h2><div class="blog-item"><h3>Blog Post 1</h3><p>Details about blog post 1.</p></div><
