@@ -13,9 +13,6 @@
       nav ul li a { color: var(--nav-text-color); text-decoration: none; scroll-behavior: smooth; }
       footer, section { padding: 20px; margin: 20px; border-radius: 8px; }
       footer { background-color: var(--nav-background-color); color: var(--nav-text-color); padding: 10px 0; position: fixed; bottom: 0; width: 100%; }
-      form { display: flex; flex-direction: column; align-items: center; }
-      form input, form textarea { margin: 5px 0; padding: 10px; width: 80%; max-width: 400px; }
-      form button { padding: 10px 20px; background-color: var(--button-background-color); color: var(--button-text-color); border: none; cursor: pointer; }
       .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.4); padding-top: 60px; }
       .modal-content { background-color: #fefefe; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 500px; border-radius: 8px; }
       .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
@@ -26,35 +23,30 @@
       img { max-width: 100%; border-radius: 8px; }
     </style>
     <script>
-      function toggleFAQAnswer(event) { const answer = event.target.nextElementSibling; answer.style.display = answer.style.display === 'block' ? 'none' : 'block'; }
       window.onscroll = function() {
         const scrollToTopButton = document.getElementById('scrollToTop');
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) { scrollToTopButton.style.display = 'block'; } else { scrollToTopButton.style.display = 'none'; }
+        scrollToTopButton.style.display = (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) ? 'block' : 'none';
       };
       function scrollToTop() { document.body.scrollTop = 0; document.documentElement.scrollTop = 0; }
-      function openModal(id) { document.getElementById(id).style.display = "block"; }
-      function closeModal(id) { document.getElementById(id).style.display = "none"; }
-      window.onclick = function(event) { 
-        const modals = document.querySelectorAll('.modal');
-        modals.forEach(modal => { if (event.target == modal) { modal.style.display = "none"; } });
+      function toggleTheme() { 
+        const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; 
+        document.documentElement.setAttribute('data-theme', newTheme); 
       }
-      function toggleTheme() { const currentTheme = document.documentElement.getAttribute('data-theme'); const newTheme = currentTheme === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', newTheme); }
-      function openEventModal(event) { const modal = document.getElementById('eventModal'); modal.querySelector('.modal-content h2').innerText = event.target.dataset.title; modal.querySelector('.modal-content p').innerText = event.target.dataset.description; modal.style.display = 'block'; }
-      function closeEventModal() { document.getElementById('eventModal').style.display = 'none'; }
+      function toggleModal(id, action) { document.getElementById(id).style.display = action; }
     </script>
   </head>
   <body>
     <h1>Welcome to My Website</h1>
     <p>This is the first step in building our awesome website.</p>
-    <nav><ul><li><a href="#home">Home</a></li><li><a href="#about" onclick="openModal('aboutModal')">About</a></li><li><a href="#news">News</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#team">Team</a></li><li><a href="#partners">Partners</a></li><li><a href="#awards">Awards</a></li><li><a href="#careers">Careers</a></li><li><a href="#events">Events</a></li><li><a href="#faq">FAQ</a></li><li><a href="#testimonials">Testimonials</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+    <nav><ul><li><a href="#home">Home</a></li><li><a href="#about" onclick="toggleModal('aboutModal', 'block')">About</a></li><li><a href="#news">News</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#team">Team</a></li><li><a href="#partners">Partners</a></li><li><a href="#awards">Awards</a></li><li><a href="#careers">Careers</a></li><li><a href="#events">Events</a></li><li><a href="#faq">FAQ</a></li><li><a href="#testimonials">Testimonials</a></li><li><a href="#contact">Contact</a></li></ul></nav>
     <img src="https://via.placeholder.com/800x400" alt="Sample Banner Image">
     <section id="home"><h2>Home</h2><p>Welcome to our website. We are glad to have you here!</p></section>
     <section id="about"><h2>About Us</h2><p>Learn more about our company, our mission, and our team.</p></section>
     <section id="news"><h2>Latest News</h2><div class="news-item"><h3>News Item 1</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula, odio ut bibendum faucibus, felis mauris pharetra urna, nec egestas justo urna eget sapien.</p></div><div class="news-item"><h3>News Item 2</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula, odio ut bibendum faucibus, felis mauris pharetra urna, nec egestas justo urna eget sapien.</p></div></section>
     <footer><p>&copy; 2023 My Website. All rights reserved.</p></footer>
     <button id="scrollToTop" onclick="scrollToTop()">Scroll to Top</button>
-    <div id="aboutModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('aboutModal')">&times;</span><h2>About Our Website</h2><p>We are committed to providing the best user experience through our interactive and user-friendly platform.</p></div></div>
-    <div id="eventModal" class="modal"><div class="modal-content"><span class="close" onclick="closeEventModal()">&times;</span><h2>Event Title</h2><p>Event description will go here.</p></div></div>
+    <div id="aboutModal" class="modal"><div class="modal-content"><span class="close" onclick="toggleModal('aboutModal', 'none')">&times;</span><h2>About Our Website</h2><p>We are committed to providing the best user experience through our interactive and user-friendly platform.</p></div></div>
+    <div id="eventModal" class="modal"><div class="modal-content"><span class="close" onclick="toggleModal('eventModal', 'none')">&times;</span><h2>Event Title</h2><p>Event description will go here.</p></div></div>
     <div class="theme-switch"><input type="checkbox" id="themeToggle" onclick="toggleTheme()"><label for="themeToggle">Toggle Dark/Light Theme</label></div>
   </body>
 </html>
