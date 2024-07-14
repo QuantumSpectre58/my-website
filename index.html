@@ -38,15 +38,59 @@
   <body>
     <h1>Welcome to My Website</h1>
     <p>This is the first step in building our awesome website.</p>
-    <nav><ul><li><a href="#home">Home</a></li><li><a href="#about" onclick="toggleModal('aboutModal', 'block')">About</a></li><li><a href="#news">News</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#team">Team</a></li><li><a href="#partners">Partners</a></li><li><a href="#awards">Awards</a></li><li><a href="#careers">Careers</a></li><li><a href="#events">Events</a></li><li><a href="#faq">FAQ</a></li><li><a href="#testimonials">Testimonials</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about" onclick="toggleModal('aboutModal', 'block')">About</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
     <img src="https://via.placeholder.com/800x400" alt="Sample Banner Image">
-    <section id="home"><h2>Home</h2><p>Welcome to our website. We are glad to have you here!</p></section>
-    <section id="about"><h2>About Us</h2><p>Learn more about our company, our mission, and our team.</p></section>
-    <section id="news"><h2>Latest News</h2><div class="news-item"><h3>News Item 1</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula, odio ut bibendum faucibus, felis mauris pharetra urna, nec egestas justo urna eget sapien.</p></div><div class="news-item"><h3>News Item 2</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula, odio ut bibendum faucibus, felis mauris pharetra urna, nec egestas justo urna eget sapien.</p></div></section>
-    <footer><p>&copy; 2023 My Website. All rights reserved.</p></footer>
+    <section id="home">
+      <h2>Home</h2>
+      <p>Welcome to our website. We are glad to have you here!</p>
+    </section>
+    <section id="about">
+      <h2>About Us</h2>
+      <p>Learn more about our company, our mission, and our team.</p>
+    </section>
+    <section id="news">
+      <h2>Latest News</h2>
+      <div class="news-item">
+        <h3>News Item 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula, odio ut bibendum faucibus, felis mauris pharetra urna, nec egestas justo urna eget sapien.</p>
+      </div>
+      <div class="news-item">
+        <h3>News Item 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula, odio ut bibendum faucibus, felis mauris pharetra urna, nec egestas justo urna eget sapien.</p>
+      </div>
+    </section>
+    <footer>
+      <p>&copy; 2023 My Website. All rights reserved.</p>
+    </footer>
     <button id="scrollToTop" onclick="scrollToTop()">Scroll to Top</button>
-    <div id="aboutModal" class="modal"><div class="modal-content"><span class="close" onclick="toggleModal('aboutModal', 'none')">&times;</span><h2>About Our Website</h2><p>We are committed to providing the best user experience through our interactive and user-friendly platform.</p></div></div>
-    <div id="eventModal" class="modal"><div class="modal-content"><span class="close" onclick="toggleModal('eventModal', 'none')">&times;</span><h2>Event Title</h2><p>Event description will go here.</p></div></div>
-    <div class="theme-switch"><input type="checkbox" id="themeToggle" onclick="toggleTheme()"><label for="themeToggle">Toggle Dark/Light Theme</label></div>
+    <div id="aboutModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="toggleModal('aboutModal', 'none')">&times;</span>
+        <h2>About Our Website</h2>
+        <p>We are committed to providing the best user experience through our interactive and user-friendly platform.</p>
+      </div>
+    </div>
+    <div id="eventModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="toggleModal('eventModal', 'none')">&times;</span>
+        <h2>Event Title</h2>
+        <p>Event description will go here.</p>
+      </div>
+    </div>
+    <div class="theme-switch">
+      <input type="checkbox" id="themeToggle" onclick="toggleTheme()">
+      <label for="themeToggle">Toggle Dark/Light Theme</label>
+    </div>
   </body>
 </html>
