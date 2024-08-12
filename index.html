@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome Page</title>
     <style>
-      :root { --bg-color: #f0f0f0; --text-color: #000; --nav-bg: #333; --nav-text: #fff; --btn-bg: #333; --btn-text: #fff; }
-      [data-theme="dark"] { --bg-color: #121212; --text-color: #fff; --nav-bg: #444; --btn-bg: #444; }
+      :root { --bg-color: #f0f0f0; --text-color: #000; --alt-bg: #333; --alt-text: #fff; }
+      [data-theme="dark"] { --bg-color: #121212; --text-color: #fff; --alt-bg: #444; }
       body, nav ul, footer, section { font-family: Arial, sans-serif; margin: 0; padding: 20px; text-align: center; background-color: var(--bg-color); color: var(--text-color); border-radius: 8px; }
-      nav ul { list-style: none; background-color: var(--nav-bg); display: flex; justify-content: center; padding: 0; }
-      nav ul li a, .theme-switch label, button { color: var(--nav-text); background-color: var(--btn-bg); padding: 5px 10px; border-radius: 5px; cursor: pointer; border: none; text-decoration: none; }
-      footer { background-color: var(--nav-bg); color: var(--nav-text); position: fixed; bottom: 0; width: 100%; }
+      nav ul { list-style: none; background-color: var(--alt-bg); display: flex; justify-content: center; padding: 0; }
+      a, .theme-switch label, button { color: var(--alt-text); background-color: var(--alt-bg); padding: 5px 10px; border-radius: 5px; cursor: pointer; border: none; text-decoration: none; }
+      footer { position: fixed; bottom: 0; width: 100%; }
       .theme-switch { position: absolute; top: 20px; right: 20px; display: flex; align-items: center; }
       img { max-width: 100%; border-radius: 8px; }
     </style>
     <script>
-      window.onscroll = function() {
+      window.onscroll = () => {
         document.getElementById('scrollToTop').style.display = (document.documentElement.scrollTop > 20) ? 'block' : 'none';
       };
-      function scrollToTop() { document.documentElement.scrollTop = 0; }
-      function toggleTheme() { 
-        const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; 
-        document.documentElement.setAttribute('data-theme', newTheme); 
+      const scrollToTop = () => document.documentElement.scrollTop = 0;
+      const toggleTheme = () => {
+        const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
       }
     </script>
   </head>
