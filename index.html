@@ -13,13 +13,9 @@
       img { max-width: 100%; border-radius: 8px; }
     </style>
     <script>
-      window.onscroll = function() {
-        document.getElementById('scrollToTop').style.display = document.documentElement.scrollTop > 20 ? 'block' : 'none';
-      };
-      function scrollToTop() { document.documentElement.scrollTop = 0; }
-      function toggleTheme() { 
-        document.documentElement.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); 
-      }
+      window.onscroll = () => document.getElementById('scrollToTop').style.display = document.documentElement.scrollTop > 20 ? 'block' : 'none';
+      const scrollToTop = () => document.documentElement.scrollTop = 0;
+      const toggleTheme = () => document.documentElement.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
     </script>
   </head>
   <body>
@@ -44,9 +40,6 @@
       <p>&copy; 2023 My Website. All rights reserved.</p>
     </footer>
     <button id="scrollToTop" onclick="scrollToTop()">Scroll to Top</button>
-    <label>
-      <input type="checkbox" id="themeToggle" onclick="toggleTheme()">
-      Toggle Theme
-    </label>
+    <label><input type="checkbox" id="themeToggle" onclick="toggleTheme()"> Toggle Theme</label>
   </body>
 </html>
