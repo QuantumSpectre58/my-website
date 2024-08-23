@@ -7,9 +7,9 @@
     <style>
       :root { --bg: #f0f0f0; --text: #000; --nav-bg: #333; --btn-bg: #333; --btn-text: #fff; }
       [data-theme="dark"] { --bg: #121212; --text: #fff; --nav-bg: #444; --btn-bg: #444; }
-      body, footer, section, nav ul { margin: 0; padding: 20px; text-align: center; background: var(--bg); color: var(--text); font-family: Arial, sans-serif; }
+      body, footer, section { margin: 0; padding: 20px; text-align: center; background: var(--bg); color: var(--text); font-family: Arial, sans-serif; }
       nav ul, footer { background: var(--nav-bg); color: var(--btn-text); padding: 0; list-style: none; display: flex; justify-content: center; }
-      a, button { color: var(--btn-text); background: var(--btn-bg); padding: 5px 10px; border-radius: 5px; cursor: pointer; text-decoration: none; border: none; }
+      a, button, label { color: var(--btn-text); background: var(--btn-bg); padding: 5px 10px; border-radius: 5px; cursor: pointer; text-decoration: none; border: none; }
       img { max-width: 100%; border-radius: 8px; }
     </style>
     <script>
@@ -40,6 +40,9 @@
       <p>&copy; 2023 My Website. All rights reserved.</p>
     </footer>
     <button id="scrollToTop" onclick="scrollToTop()">Scroll to Top</button>
-    <label><input type="checkbox" id="themeToggle" onclick="toggleTheme()"> Toggle Theme</label>
+    <label>
+      <input type="checkbox" id="themeToggle" onclick="toggleTheme()">
+      Toggle Theme
+    </label>
   </body>
 </html>
