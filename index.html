@@ -9,18 +9,17 @@
       [data-theme="dark"] { --bg: #121212; --text: #fff; --nav-bg: #444; --btn-bg: #444; }
       body, footer, section { margin: 0; padding: 20px; text-align: center; background: var(--bg); color: var(--text); font-family: Arial, sans-serif; }
       nav ul, footer { background: var(--nav-bg); color: var(--btn-text); padding: 0; list-style: none; display: flex; justify-content: center; }
-      a, button, input[type="checkbox"] { color: var(--btn-text); background: var(--btn-bg); padding: 5px 10px; border-radius: 5px; cursor: pointer; border: none; }
+      a, button, input { color: var(--btn-text); background: var(--btn-bg); padding: 5px 10px; border-radius: 5px; cursor: pointer; border: none; }
       img { max-width: 100%; border-radius: 8px; }
     </style>
     <script>
-      window.onscroll = () => document.getElementById('scrollToTop').style.display = document.documentElement.scrollTop > 20 ? 'block' : 'none';
       const scrollToTop = () => document.documentElement.scrollTop = 0;
+      window.onscroll = () => document.getElementById('scrollToTop').style.display = document.documentElement.scrollTop > 20 ? 'block' : 'none';
       const toggleTheme = () => document.documentElement.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
     </script>
   </head>
   <body>
     <h1>Welcome to My Website</h1>
-    <p>The first step in building our awesome website.</p>
     <nav>
       <ul>
         <li><a href="#home">Home</a></li>
@@ -40,6 +39,6 @@
       <p>&copy; 2023 My Website. All rights reserved.</p>
     </footer>
     <button id="scrollToTop" onclick="scrollToTop()">Scroll to Top</button>
-    <label><input type="checkbox" id="themeToggle" onclick="toggleTheme()"> Toggle Theme</label>
+    <input type="checkbox" id="themeToggle" onclick="toggleTheme()"> Toggle Theme
   </body>
 </html>
