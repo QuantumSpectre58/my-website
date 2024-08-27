@@ -7,8 +7,8 @@
     <style>
       :root { --bg: #f0f0f0; --text: #000; --nav-bg: #333; --btn-bg: #333; --btn-text: #fff; }
       [data-theme="dark"] { --bg: #121212; --text: #fff; --nav-bg: #444; --btn-bg: #444; }
-      body, footer, section { margin: 0; padding: 20px; text-align: center; background: var(--bg); color: var(--text); font-family: Arial, sans-serif; }
-      nav ul, footer { background: var(--nav-bg); color: var(--btn-text); padding: 0; list-style: none; display: flex; justify-content: center; }
+      body, footer, section, nav ul { margin: 0; padding: 20px; text-align: center; background: var(--bg); color: var(--text); font-family: Arial, sans-serif; }
+      nav ul, footer { background: var(--nav-bg); color: var(--btn-text); display: flex; justify-content: center; list-style: none; padding: 0; }
       a, button, input { color: var(--btn-text); background: var(--btn-bg); padding: 5px 10px; border-radius: 5px; cursor: pointer; border: none; }
       img { max-width: 100%; border-radius: 8px; }
     </style>
@@ -35,9 +35,7 @@
       <h2>About Us</h2>
       <p>Learn more about our company, mission, and team.</p>
     </section>
-    <footer>
-      <p>&copy; 2023 My Website. All rights reserved.</p>
-    </footer>
+    <footer>&copy; 2023 My Website. All rights reserved.</footer>
     <button id="scrollToTop" onclick="scrollToTop()">Scroll to Top</button>
     <input type="checkbox" id="themeToggle" onclick="toggleTheme()"> Toggle Theme
   </body>
