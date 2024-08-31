@@ -15,7 +15,7 @@
     <script>
       const scrollToTop = () => document.documentElement.scrollTop = 0;
       window.onscroll = () => document.getElementById('scrollToTop').style.display = document.documentElement.scrollTop > 20 ? 'block' : 'none';
-      const toggleTheme = () => document.documentElement.toggleAttribute('data-theme', document.documentElement.hasAttribute('data-theme'));
+      const toggleTheme = () => document.documentElement.toggleAttribute('data-theme');
     </script>
   </head>
   <body>
@@ -35,7 +35,7 @@
       <h2>About Us</h2>
       <p>Learn more about our company, mission, and team.</p>
     </section>
-    <footer>&copy; 2023 My Website.</footer>
+    <footer>&copy; 2023 My Website</footer>
     <button id="scrollToTop" onclick="scrollToTop()">Scroll to Top</button>
     <input type="checkbox" id="themeToggle" onclick="toggleTheme()"> Toggle Theme
   </body>
