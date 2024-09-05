@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Page</title>
+    <title>Welcome</title>
     <style>
       :root { --bg: #f0f0f0; --text: #000; --nav-bg: #333; --btn-bg: #333; --btn-text: #fff; }
       [data-theme="dark"] { --bg: #121212; --text: #fff; --nav-bg: #444; --btn-bg: #444; }
-      body, nav ul, section, footer { margin: 0; padding: 20px; text-align: center; background: var(--bg); color: var(--text); font-family: Arial, sans-serif; }
-      nav ul, footer { background: var(--nav-bg); color: var(--btn-text); display: flex; justify-content: center; list-style: none; }
-      a, button, input { color: var(--btn-text); background: var(--btn-bg); padding: 5px; border-radius: 5px; cursor: pointer; border: none; }
+      body { margin: 0; padding: 20px; text-align: center; background: var(--bg); color: var(--text); font-family: Arial, sans-serif; }
+      nav, footer { background: var(--nav-bg); color: var(--btn-text); padding: 10px; }
+      a, button, input { background: var(--btn-bg); color: var(--btn-text); padding: 5px; border-radius: 5px; border: none; cursor: pointer; }
     </style>
     <script>
       const scrollToTop = () => document.documentElement.scrollTop = 0;
@@ -20,17 +20,13 @@
   <body>
     <h1>Welcome to My Website</h1>
     <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
+      <a href="#home">Home</a>
     </nav>
     <section id="home">
-      <h2>Home</h2>
       <p>We are glad to have you here!</p>
     </section>
-    <footer>&copy; 2023 My Website</footer>
-    <button id="scrollToTop" onclick="scrollToTop()">Scroll to Top</button>
-    <input type="checkbox" id="themeToggle" onclick="toggleTheme()"> Toggle Theme
+    <footer>&copy; 2023</footer>
+    <button id="scrollToTop" onclick="scrollToTop()">Top</button>
+    <input type="checkbox" onclick="toggleTheme()"> Toggle Theme
   </body>
 </html>
