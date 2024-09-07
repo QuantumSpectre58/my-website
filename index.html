@@ -5,21 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
     <style>
-      :root { --bg: #f0f0f0; --text: #000; --btn-bg: #333; --btn-text: #fff; }
-      [data-theme="dark"] { --bg: #121212; --text: #fff; --btn-bg: #444; }
+      :root { --bg: #f0f0f0; --text: #000; }
+      [data-theme="dark"] { --bg: #121212; --text: #fff; }
       body { margin: 0; padding: 20px; text-align: center; background: var(--bg); color: var(--text); font-family: Arial, sans-serif; }
-      button, input { background: var(--btn-bg); color: var(--btn-text); padding: 5px; border-radius: 5px; border: none; cursor: pointer; }
+      button { background: #333; color: #fff; padding: 5px; border: none; cursor: pointer; }
     </style>
     <script>
-      const scrollToTop = () => document.documentElement.scrollTop = 0;
-      window.onscroll = () => document.getElementById('scrollToTop').style.display = document.documentElement.scrollTop > 20 ? 'block' : 'none';
       const toggleTheme = () => document.documentElement.toggleAttribute('data-theme');
     </script>
   </head>
   <body>
     <h1>Welcome</h1>
-    <p>We are glad to have you here!</p>
-    <button id="scrollToTop" onclick="scrollToTop()">Top</button>
-    <input type="checkbox" onclick="toggleTheme()"> Toggle Theme
+    <p>Glad to have you here!</p>
+    <button onclick="toggleTheme()">Toggle Theme</button>
   </body>
 </html>
