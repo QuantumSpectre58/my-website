@@ -7,10 +7,10 @@
     <style>
       body { margin: 0; padding: 20px; text-align: center; background: #f0f0f0; color: #000; font-family: sans-serif; }
       button { background: #333; color: #fff; padding: 5px; border: none; cursor: pointer; }
-      body[data-theme="dark"] { background: #121212; color: #fff; }
+      [data-theme="dark"] { background: #121212; color: #fff; }
     </style>
     <script>
-      const toggleTheme = () => document.body.toggleAttribute('data-theme');
+      const toggleTheme = () => document.documentElement.toggleAttribute('data-theme');
     </script>
   </head>
   <body>
