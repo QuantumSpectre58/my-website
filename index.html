@@ -9,11 +9,10 @@
       [data-theme="dark"]{background:#121212;color:#fff}
     </style>
     <script>
-      const toggleTheme=()=>document.documentElement.toggleAttribute('data-theme');
+      document.documentElement.onclick=()=>document.documentElement.toggleAttribute('data-theme');
     </script>
   </head>
   <body>
     <h1>Welcome</h1>
-    <button onclick="toggleTheme()">Toggle Theme</button>
   </body>
 </html>
