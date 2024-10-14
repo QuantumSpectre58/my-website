@@ -3,5 +3,13 @@
   <body style="transition:.5s" onclick="document.documentElement.toggleAttribute('data-theme')" data-theme="">
     <h1>Click to change theme</h1>
     <p>This is a minimal page with theme toggle functionality.</p>
+    <p>Current theme: <span id="theme-status">Light</span></p>
+    <script>
+      document.body.onclick = () => {
+        document.documentElement.toggleAttribute('data-theme');
+        document.getElementById('theme-status').textContent = 
+          document.documentElement.hasAttribute('data-theme') ? 'Dark' : 'Light';
+      }
+    </script>
   </body>
 </html>
