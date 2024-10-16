@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <body style="transition:.5s;text-align:center;font-family:sans-serif" onclick="document.documentElement.toggleAttribute('data-theme')" data-theme="">
+  <body style="transition:.5s;text-align:center;font-family:sans-serif" data-theme="">
     <h1>Click to change theme</h1>
     <p>This is a minimal page with theme toggle functionality.</p>
     <p>Current theme: <span id="theme-status" style="font-weight:bold;">Light</span></p>
+    <button onclick="toggleTheme()">Toggle Theme</button>
     <script>
-      document.body.onclick = () => {
+      function toggleTheme() {
         document.documentElement.toggleAttribute('data-theme');
         document.getElementById('theme-status').textContent = 
           document.documentElement.hasAttribute('data-theme') ? 'Dark' : 'Light';
       }
+      document.body.onclick = toggleTheme;
     </script>
   </body>
 </html>
