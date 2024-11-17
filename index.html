@@ -4,10 +4,11 @@
     <h1>Click to change theme</h1>
     <p>Current theme: <span id="theme-status" style="font-weight:bold;">Light</span></p>
     <script>
-      document.body.onclick = () => {
+      const updateTheme = () => {
         const isDark = document.documentElement.toggleAttribute('data-theme');
         document.getElementById('theme-status').textContent = isDark ? 'Dark' : 'Light';
       };
+      document.body.onclick = updateTheme;
     </script>
   </body>
 </html>
