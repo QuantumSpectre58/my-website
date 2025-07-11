@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <body style="transition:.5s;text-align:center;font-family:sans-serif" data-theme="">
+  <head>
+    <style>
+      body {
+        transition: background-color 0.5s, color 0.5s;
+        text-align: center;
+        font-family: sans-serif;
+        cursor: pointer;
+      }
+
+      [data-theme="dark"] {
+        background-color: #111;
+        color: #eee;
+      }
+
+      [data-theme=""] {
+        background-color: #fff;
+        color: #000;
+      }
+    </style>
+  </head>
+  <body data-theme="" role="button">
     <h1>Click to change theme</h1>
-    <p>Current theme: <span id="theme-status" style="font-weight:bold;">Light</span></p>
+    <p>Current theme: <span id="theme-status" style="font-weight: bold;">Light</span></p>
     <script>
       const updateTheme = () => {
-        const isDark = document.documentElement.toggleAttribute('data-theme');
+        const isDark = document.documentElement.toggleAttribute('data-theme', true);
         document.getElementById('theme-status').textContent = isDark ? 'Dark' : 'Light';
+        document.body.setAttribute('data-theme', isDark ? 'dark' : '');
       };
-      document.body.onclick = updateTheme;
+
+      document.body.addEventListener('click', updateTheme);
     </script>
   </body>
 </html>
-
