@@ -38,23 +38,32 @@
       button:focus {
         outline: 2px solid #00f;
       }
+
+      .icon {
+        margin-right: 8px;
+      }
     </style>
   </head>
   <body data-theme="">
     <h1>Click the button to change theme</h1>
     <p>Current theme: <span id="theme-status" style="font-weight: bold;">Light</span></p>
-    <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
+    <button id="theme-toggle" aria-label="Toggle theme">
+      <span class="icon">🌙</span>
+      Toggle Theme
+    </button>
 
     <script>
       const themeKey = 'preferred-theme';
       const toggleBtn = document.getElementById('theme-toggle');
       const statusEl = document.getElementById('theme-status');
+      const iconEl = toggleBtn.querySelector('.icon');
 
       const applyTheme = (theme) => {
         const isDark = theme === 'dark';
         document.documentElement.setAttribute('data-theme', isDark ? 'dark' : '');
         document.body.setAttribute('data-theme', isDark ? 'dark' : '');
         statusEl.textContent = isDark ? 'Dark' : 'Light';
+        iconEl.textContent = isDark ? '☀️' : '🌙';
       };
 
       const toggleTheme = () => {
