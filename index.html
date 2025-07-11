@@ -75,8 +75,14 @@
 
       toggleBtn.addEventListener('click', toggleTheme);
 
-      const savedTheme = localStorage.getItem(themeKey) || '';
-      applyTheme(savedTheme);
+      // Load theme: from localStorage or system preference
+      const savedTheme = localStorage.getItem(themeKey);
+      if (savedTheme) {
+        applyTheme(savedTheme);
+      } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark ? 'dark' : '');
+      }
     </script>
   </body>
 </html>
