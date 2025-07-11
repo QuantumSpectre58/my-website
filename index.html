@@ -20,21 +20,33 @@
       }
     </style>
   </head>
-  <body data-theme="" role="button" tabindex="0" aria-label="Toggle theme (click or press Enter)">
+  <body role="button" tabindex="0" aria-label="Toggle theme (click or press Enter)">
     <h1>Click to change theme</h1>
     <p>Current theme: <span id="theme-status" style="font-weight: bold;">Light</span></p>
     <script>
-      const updateTheme = () => {
-        const isDark = document.documentElement.toggleAttribute('data-theme', true);
-        document.getElementById('theme-status').textContent = isDark ? 'Dark' : 'Light';
+      const themeKey = 'preferred-theme';
+
+      const applyTheme = (theme) => {
+        const isDark = theme === 'dark';
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : '');
         document.body.setAttribute('data-theme', isDark ? 'dark' : '');
+        document.getElementById('theme-status').textContent = isDark ? 'Dark' : 'Light';
       };
 
-      document.body.addEventListener('click', updateTheme);
+      const toggleTheme = () => {
+        const currentTheme = document.body.getAttribute('data-theme') === 'dark' ? 'dark' : '';
+        const newTheme = currentTheme === 'dark' ? '' : 'dark';
+        localStorage.setItem(themeKey, newTheme);
+        applyTheme(newTheme);
+      };
+
+      // Load saved theme on page load
+      const savedTheme = localStorage.getItem(themeKey) || '';
+      applyTheme(savedTheme);
+
+      document.body.addEventListener('click', toggleTheme);
       document.body.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          updateTheme();
-        }
+        if (e.key === 'Enter' || e.key === ' ') toggleTheme();
       });
     </script>
   </body>
