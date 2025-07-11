@@ -28,6 +28,9 @@
         border-radius: 5px;
         background-color: #ddd;
         transition: background-color 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
       }
 
       [data-theme="dark"] button {
@@ -40,7 +43,12 @@
       }
 
       .icon {
-        margin-right: 8px;
+        display: inline-block;
+        transition: transform 0.4s ease;
+      }
+
+      .icon.flip {
+        transform: rotateY(180deg);
       }
     </style>
   </head>
@@ -58,24 +66,32 @@
       const statusEl = document.getElementById('theme-status');
       const iconEl = toggleBtn.querySelector('.icon');
 
-      const applyTheme = (theme) => {
+      const applyTheme = (theme, animated = false) => {
         const isDark = theme === 'dark';
         document.documentElement.setAttribute('data-theme', isDark ? 'dark' : '');
         document.body.setAttribute('data-theme', isDark ? 'dark' : '');
         statusEl.textContent = isDark ? 'Dark' : 'Light';
-        iconEl.textContent = isDark ? '☀️' : '🌙';
+
+        if (animated) {
+          iconEl.classList.add('flip');
+          setTimeout(() => {
+            iconEl.textContent = isDark ? '☀️' : '🌙';
+            iconEl.classList.remove('flip');
+          }, 200);
+        } else {
+          iconEl.textContent = isDark ? '☀️' : '🌙';
+        }
       };
 
       const toggleTheme = () => {
         const currentTheme = document.body.getAttribute('data-theme') === 'dark' ? 'dark' : '';
         const newTheme = currentTheme === 'dark' ? '' : 'dark';
         localStorage.setItem(themeKey, newTheme);
-        applyTheme(newTheme);
+        applyTheme(newTheme, true);
       };
 
       toggleBtn.addEventListener('click', toggleTheme);
 
-      // Load theme: from localStorage or system preference
       const savedTheme = localStorage.getItem(themeKey);
       if (savedTheme) {
         applyTheme(savedTheme);
