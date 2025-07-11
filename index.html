@@ -20,7 +20,7 @@
       }
     </style>
   </head>
-  <body data-theme="" role="button">
+  <body data-theme="" role="button" tabindex="0" aria-label="Toggle theme (click or press Enter)">
     <h1>Click to change theme</h1>
     <p>Current theme: <span id="theme-status" style="font-weight: bold;">Light</span></p>
     <script>
@@ -31,6 +31,11 @@
       };
 
       document.body.addEventListener('click', updateTheme);
+      document.body.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          updateTheme();
+        }
+      });
     </script>
   </body>
 </html>
