@@ -6,7 +6,7 @@
         transition: background-color 0.5s, color 0.5s;
         text-align: center;
         font-family: sans-serif;
-        cursor: pointer;
+        margin-top: 100px;
       }
 
       [data-theme="dark"] {
@@ -18,19 +18,43 @@
         background-color: #fff;
         color: #000;
       }
+
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #ddd;
+        transition: background-color 0.3s;
+      }
+
+      [data-theme="dark"] button {
+        background-color: #444;
+        color: #eee;
+      }
+
+      button:focus {
+        outline: 2px solid #00f;
+      }
     </style>
   </head>
-  <body role="button" tabindex="0" aria-label="Toggle theme (click or press Enter)">
-    <h1>Click to change theme</h1>
+  <body data-theme="">
+    <h1>Click the button to change theme</h1>
     <p>Current theme: <span id="theme-status" style="font-weight: bold;">Light</span></p>
+    <button id="theme-toggle" aria-label="Toggle theme">Toggle Theme</button>
+
     <script>
       const themeKey = 'preferred-theme';
+      const toggleBtn = document.getElementById('theme-toggle');
+      const statusEl = document.getElementById('theme-status');
 
       const applyTheme = (theme) => {
         const isDark = theme === 'dark';
         document.documentElement.setAttribute('data-theme', isDark ? 'dark' : '');
         document.body.setAttribute('data-theme', isDark ? 'dark' : '');
-        document.getElementById('theme-status').textContent = isDark ? 'Dark' : 'Light';
+        statusEl.textContent = isDark ? 'Dark' : 'Light';
       };
 
       const toggleTheme = () => {
@@ -40,14 +64,10 @@
         applyTheme(newTheme);
       };
 
-      // Load saved theme on page load
+      toggleBtn.addEventListener('click', toggleTheme);
+
       const savedTheme = localStorage.getItem(themeKey) || '';
       applyTheme(savedTheme);
-
-      document.body.addEventListener('click', toggleTheme);
-      document.body.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') toggleTheme();
-      });
     </script>
   </body>
 </html>
